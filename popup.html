@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP & Security Inspector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+    <!-- Header Section -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-icon logo-shield">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <circle cx="12" cy="11" r="3"></circle>
+            <line x1="12" y1="8" x2="12" y2="14"></line>
+            <line x1="9" y1="11" x2="15" y2="11"></line>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 class="app-title">IP Inspector</h1>
+          <span class="app-tagline">Security & Network Suite</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="ping-badge" id="ping-badge" title="Network Latency">
+          <span class="ping-dot"></span>
+          <span id="ping-text">-- ms</span>
+        </div>
+        <button id="btn-theme-toggle" class="icon-btn" title="Toggle Light/Dark Theme">
+          <svg id="theme-icon-sun" class="hidden" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg id="theme-icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button id="btn-open-settings" class="icon-btn" title="Extension Settings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+        <button id="btn-refresh" class="icon-btn" title="Refresh Live Data">
+          <svg id="refresh-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" id="tab-btn-myip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        My Connection
+      </button>
+      <button class="tab-btn" id="tab-btn-tabip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        Active Tab Server
+      </button>
+    </nav>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Extension Settings</h3>
+          <button id="btn-close-settings" class="icon-btn-sm">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-title">Auto Background Check</span>
+              <span class="setting-desc">Auto-update toolbar badge country code dynamically in background while browsing.</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="setting-background-check">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-title">One-Click IP Auto Copy</span>
+              <span class="setting-desc">Automatically copy IP to clipboard when clicking on IP rows.</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="setting-auto-copy" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-title">Theme Mode</span>
+              <span class="setting-desc">Switch between Dark and Light mode.</span>
+            </div>
+            <button id="setting-theme-btn" class="btn-secondary-sm">Toggle Theme</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Banner -->
+    <div id="toast-container" class="toast-container hidden"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+      <div class="spinner"></div>
+      <span>Inspecting Network & Threat Intelligence...</span>
+    </div>
+
+    <!-- TAB 1: My IP & Security Details -->
+    <main id="view-myip" class="tab-view active">
+      <!-- IP Addresses Card -->
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">IP Addresses</span>
+          <span id="ip-type-badge" class="badge badge-outline">Detecting...</span>
+        </div>
+        <div class="ip-row highlight-ip-row" id="row-ipv4">
+          <span class="ip-version-tag tag-ipv4">IPv4</span>
+          <div class="ip-value-wrapper">
+            <span class="ip-value" id="ipv4-val">Fetching...</span>
+            <button class="copy-icon-btn" id="btn-copy-ipv4" title="Copy IPv4">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+        </div>
+        <div class="ip-row" id="row-ipv6">
+          <span class="ip-version-tag tag-ipv6">IPv6</span>
+          <div class="ip-value-wrapper">
+            <span class="ip-value truncate" id="ipv6-val">Resolving...</span>
+            <button class="copy-icon-btn" id="btn-copy-ipv6" title="Copy IPv6">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Security & Threat Intelligence Card -->
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">Security & Fraud Check</span>
+          <span id="threat-level-badge" class="badge badge-success">Low Risk</span>
+        </div>
+        
+        <!-- IPv4 vs IPv6 Security Sub-Tabs -->
+        <div class="sec-protocol-nav">
+          <button class="sec-proto-btn active" id="sec-tab-ipv4">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            IPv4 Result
+          </button>
+          <button class="sec-proto-btn" id="sec-tab-ipv6">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            IPv6 Result
+          </button>
+        </div>
+
+        <div class="threat-score-container">
+          <div class="threat-score-header">
+            <span class="threat-score-label" id="sec-proto-label">IPv4 Threat Score</span>
+            <span class="threat-score-num" id="threat-score-value">0%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="threat-score-bar" class="progress-bar-fill level-low" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div class="security-grid">
+          <div class="security-item">
+            <span class="sec-label">VPN Status</span>
+            <span class="sec-val sec-clean" id="sec-vpn-status">Clean</span>
+          </div>
+          <div class="security-item">
+            <span class="sec-label">Proxy Status</span>
+            <span class="sec-val sec-clean" id="sec-proxy-status">Clean</span>
+          </div>
+          <div class="security-item">
+            <span class="sec-label">TOR Relay</span>
+            <span class="sec-val sec-clean" id="sec-tor-status">Clean</span>
+          </div>
+          <div class="security-item">
+            <span class="sec-label">Classification</span>
+            <span class="sec-val" id="sec-connection-type">Residential</span>
+          </div>
+        </div>
+
+        <!-- Deep Verification Tools Links -->
+        <div class="deep-links-box">
+          <span class="deep-links-label">Deep Verification Tools:</span>
+          <div class="deep-links">
+            <a href="https://pixelscan.net" target="_blank" class="deep-link">PixelScan</a>
+            <span class="sep">•</span>
+            <a href="https://ipx.ac" target="_blank" class="deep-link">IPx</a>
+            <span class="sep">•</span>
+            <a href="https://ipleak.net" target="_blank" class="deep-link">IPLeak</a>
+            <span class="sep">•</span>
+            <a href="https://dnscheck.tools/" target="_blank" class="deep-link">DNSCheck</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leaks & Mismatches Card -->
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">Leaks & Mismatches</span>
+        </div>
+        <div class="alerts-list">
+          <div class="alert-item alert-success" id="alert-timezone">
+            <span class="alert-icon">🕒</span>
+            <div class="alert-content">
+              <span class="alert-title" id="tz-mismatch-title">Timezone Status</span>
+              <span class="alert-sub" id="tz-mismatch-detail">Checking local vs IP timezone...</span>
+            </div>
+          </div>
+          <div class="alert-item alert-success" id="alert-webrtc">
+            <span class="alert-icon">🛡️</span>
+            <div class="alert-content">
+              <span class="alert-title" id="webrtc-title">WebRTC Leak Check</span>
+              <span class="alert-sub" id="webrtc-detail">Testing for exposed local IPs...</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Geolocation & Provider Details Card -->
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">Network & Geolocation</span>
+        </div>
+        <div class="details-grid">
+          <div class="detail-row">
+            <span class="d-label">ISP / Org</span>
+            <span class="d-value" id="geo-isp">Fetching...</span>
+          </div>
+          <div class="detail-row">
+            <span class="d-label">ASN</span>
+            <span class="d-value" id="geo-asn">N/A</span>
+          </div>
+          <div class="detail-row">
+            <span class="d-label">Location</span>
+            <span class="d-value" id="geo-location-row"><span class="flag-icon" id="geo-flag">🌐</span> <span id="geo-location">Loading...</span></span>
+          </div>
+          <div class="detail-row">
+            <span class="d-label">Currency</span>
+            <span class="d-value" id="geo-currency">N/A</span>
+          </div>
+          <div class="detail-row">
+            <span class="d-label">Timezone</span>
+            <span class="d-value" id="geo-timezone">N/A</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- TAB 2: Active Tab Server IP View -->
+    <main id="view-tabip" class="tab-view">
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">Current Website Host</span>
+        </div>
+        <div class="tab-target-box">
+          <span class="tab-target-label">Domain Name:</span>
+          <span class="tab-domain-val truncate" id="tab-domain-name">Fetching active tab...</span>
+          <span class="tab-url-val truncate" id="tab-full-url">N/A</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">Server IP Address</span>
+        </div>
+        <div class="ip-row highlight-ip-row">
+          <span class="ip-version-tag tag-server">SERVER IP</span>
+          <div class="ip-value-wrapper">
+            <span class="ip-value" id="tab-server-ip-val">Capturing...</span>
+            <button class="copy-icon-btn" id="btn-copy-tab-ip" title="Copy Server IP">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <span class="card-title">Server Geolocation & Network</span>
+        </div>
+        <div class="details-grid">
+          <div class="detail-row">
+            <span class="d-label">Hosting Provider</span>
+            <span class="d-value" id="tab-server-isp">N/A</span>
+          </div>
+          <div class="detail-row">
+            <span class="d-label">ASN</span>
+            <span class="d-value" id="tab-server-asn">N/A</span>
+          </div>
+          <div class="detail-row">
+            <span class="d-label">Location</span>
+            <span class="d-value"><span class="flag-icon" id="tab-server-flag">🌐</span> <span id="tab-server-location">N/A</span></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- App Footer -->
+    <footer class="app-footer">
+      <span>Developed by <a href="https://zaap.bio/mahfuj" target="_blank" class="dev-link">Mahfuj Khan Rafsan</a></span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

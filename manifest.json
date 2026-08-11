@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "IP & Security Inspector",
+  "version": "1.0",
+  "description": "Inspect public IPv4/IPv6, tab server IP, geolocation, ISP, fraud threat score, VPN/Proxy detection & IP leaks.",
+  "author": "Mahfuj Khan Rafsan",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "webRequest",
+    "alarms",
+    "tabs",
+    "webNavigation",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://ipapi.is/*",
+    "https://ipwho.is/*",
+    "https://api4.ipify.org/*",
+    "https://api64.ipify.org/*",
+    "https://ipapi.co/*",
+    "https://checkip.amazonaws.com/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "IP & Security Inspector",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
