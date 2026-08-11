@@ -82,4 +82,4 @@ Developed by **[Mahfuj Khan Rafsan](https://zaap.bio/mahfuj)**.
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-Developed with ❤️ by **[Mahfuj Khan Rafsan](https://zaap.bio/mahfuj)**.
+Developed with ❤️ by **[Mahfuj Khan Rafsan](https://zaap.bio/mahfuj)**
