@@ -1,4 +1,4 @@
-# 🛡️ IP & Security Inspector (v1.0)
+# 🛡️ IP & Security Inspector
 
 A powerful, high-performance browser extension designed to inspect your public IPv4/IPv6 addresses, active tab server details, geolocation, ISP provider, fraud threat risk score, VPN/Proxy detection, WebRTC leaks, and timezone mismatches.
 
