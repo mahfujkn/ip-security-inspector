@@ -8,7 +8,7 @@ Developed by **[Mahfuj Khan Rafsan](https://zaap.bio/mahfuj)**.
 
 ## 📥 Downloads & Releases
 
-- 📦 **Download Latest Release:** [GitHub Releases v1.0](https://github.com/mahfujkn/ip-security-inspector/releases)
+- 📦 **Download Latest Release:** [GitHub Releases](https://github.com/mahfujkn/ip-security-inspector/releases)
 
 ---
 
