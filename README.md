@@ -8,7 +8,7 @@
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-success.svg)
-![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-green.svg)
+![Privacy](https://img.shields.io/badge/Privacy-No%20Tracking-green.svg)
 ![Security](https://img.shields.io/badge/Security-Security%20Focused-purple.svg)
 
 [**Download Release (.ZIP)**](https://github.com/mahfujkn/ip-security-inspector/releases) • [**Features**](#-features) • [**Installation**](#-installation-guide) • [**Screenshots**](#-screenshots)
