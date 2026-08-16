@@ -1,4 +1,4 @@
-# 🛡️ IP & Security Inspector
+# IP & Security Inspector
 
 <div align="center">
 
