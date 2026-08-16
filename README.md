@@ -11,8 +11,7 @@
 ![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-green.svg)
 ![Security](https://img.shields.io/badge/Security-Security%20Focused-purple.svg)
 
-[**Download Release (.ZIP)**](https://github.com/mahfujkn/ip-security-inspector/releases) • [**Features**](#-features) • [**Installation**](#-installation-guide) • [**Screenshots**](#-screenshots) • [**Technology Stack**](https://github.com/mahfujkn/ip-security-inspector#-technology-stack)
-
+[**Download Release (.ZIP)**](https://github.com/mahfujkn/ip-security-inspector/releases) • [**Features**](#-features) • [**Installation**](#-installation-guide) • [**Screenshots**](#-screenshots)
 </div>
 
 ---
