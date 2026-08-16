@@ -6,15 +6,13 @@
 
 ### 🌐 Powerful, High-Performance IP & Security Inspection Extension for Chromium Browsers
 
-<p>
-  <a href="https://github.com/mahfujkn/ip-security-inspector/releases">
-    <img src="https://img.shields.io/badge/Download-GitHub%20Release-blue.svg" alt="Download Release" />
-  </a>
-  <img src="https://img.shields.io/badge/Manifest-V3-success.svg" alt="Manifest V3" />
-  <img src="https://img.shields.io/badge/Privacy-Security%20Focused-purple.svg" alt="Privacy & Security" />
-</p>
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Manifest V3](https://img.shields.io/badge/Manifest-V3-success.svg)
+![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-green.svg)
+![Security](https://img.shields.io/badge/Security-Security%20Focused-purple.svg)
 
-[**Download Release (.ZIP)**](https://github.com/mahfujkn/ip-security-inspector/releases) • [**Features**](#-features) • [**Installation**](#-installation-guide) • [**Screenshots**](#-screenshots)
+[**Download Release (.ZIP)**](https://github.com/mahfujkn/ip-security-inspector/releases) • [**Features**](#-features) • [**Installation**](#-installation-guide) • [**Screenshots**](#-screenshots) • [**Technology Stack**](https://github.com/mahfujkn/ip-security-inspector#-technology-stack)
+
 </div>
 
 ---
