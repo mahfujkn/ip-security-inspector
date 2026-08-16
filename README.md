@@ -14,8 +14,7 @@
   <img src="https://img.shields.io/badge/Privacy-Security%20Focused-purple.svg" alt="Privacy & Security" />
 </p>
 
-[**Download Release (.ZIP)**](https://github.com/mahfujkn/ip-security-inspector/releases) • [**Features**](#-features) • [**Installation**](#-installation-guide) • [**Screenshots**](#-screenshots) • [**Technology Stack**](#-technology-stack)
-
+[**Download Release (.ZIP)**](https://github.com/mahfujkn/ip-security-inspector/releases) • [**Features**](#-features) • [**Installation**](#-installation-guide) • [**Screenshots**](#-screenshots) • [**Architecture**](#-tech-stack--architecture)
 </div>
 
 ---
