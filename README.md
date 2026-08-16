@@ -10,6 +10,7 @@
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-success.svg)
 ![Privacy](https://img.shields.io/badge/Privacy-No%20Tracking-green.svg)
 ![Security](https://img.shields.io/badge/Security-Security%20Focused-purple.svg)
+[![Release Version](https://img.shields.io/badge/Version-v1.0.0-orange.svg)](https://github.com/mahfujkn/ip-security-inspector/releases)
 
 [**Download Release (.ZIP)**](https://github.com/mahfujkn/ip-security-inspector/releases) • [**Features**](#-features) • [**Installation**](#-installation-guide) • [**Screenshots**](#-screenshots)
 </div>
